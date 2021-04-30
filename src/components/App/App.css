@@ -1,0 +1,15 @@
+.main-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
+  'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-top: 15px;
+  margin: auto;
+}
+
+#calc-form {
+  padding-top: 10px;
+}
+
+#result {
+  font-size: 28px;
+  padding-top: 20px;
+}
