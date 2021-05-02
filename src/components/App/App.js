@@ -82,7 +82,7 @@ class App extends React.Component {
       <Container className="app-container">
         <Row>
           <Col className="d-flex justify-content-center">
-            <h1>Interest Calculator</h1>
+            <h1>Compound Interest Calculator</h1>
           </Col>
         </Row>
         <Row id="calc-form">

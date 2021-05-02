@@ -1,5 +1,6 @@
 import React from 'react';
 import './CalcForm.css';
+import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -31,23 +32,23 @@ class CalcForm extends React.Component {
 
   render() {
     const parentState = this.props.state;
-    const initialInvestmentInputStyle = isNaN(parentState.initialInvestment) ? "empty-input" : "";
-    const contributionInputStyle = isNaN(parentState.contribution) ? "empty-input" : "";
-    const yearsInputStyle = isNaN(parentState.years) ? "empty-input" : "";
-    const annualRateInputStyle = isNaN(parentState.annualRate) ? "empty-input" : "";
+    // const initialInvestmentInputStyle = isNaN(parentState.initialInvestment) ? "empty-input" : "";
+    // const contributionInputStyle = isNaN(parentState.contribution) ? "empty-input" : "";
+    // const yearsInputStyle = isNaN(parentState.years) ? "empty-input" : "";
+    // const annualRateInputStyle = isNaN(parentState.annualRate) ? "empty-input" : "";
     const emptyInputText = (<div className="empty-input-text">Please enter a value</div>);
     return (
-      <div>
+      <Form>
         <Row>
           <Col>
             <label for="initial-investment">Initial investment</label>
           </Col>
         </Row>
         <Row>
-          <span>$</span>
-          <Col>
-            <input onChange={this.props.handleChangeInitialInvestment} value={parentState.initialInvestment} type="number" 
-            className={initialInvestmentInputStyle + " rounded"} id="initial-investment" />
+          <Col md="auto">$</Col>
+          <Col md="auto">
+            <Form.Control onChange={this.props.handleChangeInitialInvestment} value={parentState.initialInvestment} type="number" 
+            id="initial-investment" />
             {isNaN(parentState.initialInvestment) && emptyInputText}
           </Col>
         </Row>
@@ -57,17 +58,17 @@ class CalcForm extends React.Component {
           </Col>
         </Row>
         <Row>
-          <span>$</span>
+          <Col md="auto">$</Col>
           <Col md="auto">
-            <input onChange={this.props.handleChangeContribution} value={parentState.contribution} type="number" 
-            className={contributionInputStyle + " rounded"} id="contribution" />
+            <Form.Control onChange={this.props.handleChangeContribution} value={parentState.contribution} type="number" 
+            id="contribution" />
             {isNaN(parentState.contribution) && emptyInputText}
           </Col>
           <Col>
-            <select onChange={this.props.handleChangeContributionRate}> {/*No name attribute because not using a form*/}
+            <Form.Control as="select" custom onChange={this.props.handleChangeContributionRate}>
               <option value="monthly">Monthly</option>
               <option value="yearly">Yearly</option>
-            </select>
+            </Form.Control>
           </Col>
         </Row>
         <Row className="input-label">
@@ -76,9 +77,8 @@ class CalcForm extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <input onChange={this.props.handleChangeYears} value={parentState.years} type="number" 
-            className={yearsInputStyle + " rounded"} id="years" />
+          <Col md="auto">
+            <Form.Control onChange={this.props.handleChangeYears} value={parentState.years} type="number" id="years" />
             {isNaN(parentState.years) && emptyInputText}
           </Col>
         </Row>
@@ -88,19 +88,19 @@ class CalcForm extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <input onChange={this.props.handleChangeAnnualRate} value={parentState.annualRate} type="number" 
-            className={annualRateInputStyle + " rounded"} id="annual-rate" />
-            <span> %</span>
+          <Col md="auto">
+            <Form.Control onChange={this.props.handleChangeAnnualRate} value={parentState.annualRate} type="number" 
+            id="annual-rate" />
             {isNaN(parentState.annualRate) && emptyInputText}
           </Col>
+          <Col>%</Col>
         </Row>
         <Row className="calculate-button">
           <Col>
             <Button onClick={this.handleSubmit} variant="dark">Calculate</Button>
           </Col>
         </Row>
-      </div>
+      </Form>
     );
   }
 }
