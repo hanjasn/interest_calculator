@@ -1,7 +1,15 @@
+.empty-input {
+  border: 2px solid red;
+}
+
+.empty-input-text {
+  color: red;
+}
+
 .input-label {
   padding-top: 10px;
 }
 
 .calculate-button {
-  padding-top: 10px;
+  padding-top: 20px;
 }
