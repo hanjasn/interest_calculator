@@ -47,7 +47,7 @@ class CalcForm extends React.Component {
           <span>$</span>
           <Col>
             <input onChange={this.props.handleChangeInitialInvestment} value={parentState.initialInvestment} type="number" 
-            className={initialInvestmentInputStyle} id="initial-investment" />
+            className={initialInvestmentInputStyle + " rounded"} id="initial-investment" />
             {isNaN(parentState.initialInvestment) && emptyInputText}
           </Col>
         </Row>
@@ -60,7 +60,7 @@ class CalcForm extends React.Component {
           <span>$</span>
           <Col md="auto">
             <input onChange={this.props.handleChangeContribution} value={parentState.contribution} type="number" 
-            className={contributionInputStyle} id="contribution" />
+            className={contributionInputStyle + " rounded"} id="contribution" />
             {isNaN(parentState.contribution) && emptyInputText}
           </Col>
           <Col>
@@ -77,7 +77,8 @@ class CalcForm extends React.Component {
         </Row>
         <Row>
           <Col>
-            <input onChange={this.props.handleChangeYears} value={parentState.years} type="number" className={yearsInputStyle} d="years" />
+            <input onChange={this.props.handleChangeYears} value={parentState.years} type="number" 
+            className={yearsInputStyle + " rounded"} id="years" />
             {isNaN(parentState.years) && emptyInputText}
           </Col>
         </Row>
@@ -88,8 +89,8 @@ class CalcForm extends React.Component {
         </Row>
         <Row>
           <Col>
-            <input onChange={this.props.handleChangeAnnualRate} value={parentState.annualRate} type="number" className={annualRateInputStyle} 
-            id="annual-rate" />
+            <input onChange={this.props.handleChangeAnnualRate} value={parentState.annualRate} type="number" 
+            className={annualRateInputStyle + " rounded"} id="annual-rate" />
             <span> %</span>
             {isNaN(parentState.annualRate) && emptyInputText}
           </Col>
