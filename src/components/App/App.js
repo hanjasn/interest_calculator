@@ -17,6 +17,7 @@ class App extends React.Component {
       years: 0,
       annualRate: 0,
       result: 0,
+      totalContribution: 0
     };
     this.handleChangeInitialInvestment = this.handleChangeInitialInvestment.bind(this);
     this.handleChangeContribution = this.handleChangeContribution.bind(this);
@@ -68,8 +69,11 @@ class App extends React.Component {
       calculation += contribution;
       calculation *= 1 + (this.state.annualRate / 100);
     }
-    this.setState({
-      result: calculation
+    this.setState(function(state) {
+      return {
+        result: calculation,
+        totalContribution: contribution * state.years
+      };
     });
   }
   
@@ -88,9 +92,14 @@ class App extends React.Component {
             handleChangeYears={this.handleChangeYears} handleSubmit={this.handleSubmit}/>
           </Col>
         </Row>
-        <Row id="result">
-          <Col className="d-flex justify-content-center">
-            <p>${this.state.result.toFixed(2)}</p>
+        <Row className="results">
+          <Col className="d-flex justify-content-end" md={7}>
+            Resulting Value of Investment:<br />
+            Total Contribution: 
+          </Col>
+          <Col className="d-flex justify-content-start" md="auto">
+            ${this.state.result.toFixed(2)}<br />
+            ${this.state.totalContribution.toFixed(2)}
           </Col>
         </Row>
       </Container>

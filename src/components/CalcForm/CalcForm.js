@@ -58,7 +58,7 @@ class CalcForm extends React.Component {
         </Row>
         <Row>
           <span>$</span>
-          <Col>
+          <Col md="auto">
             <input onChange={this.props.handleChangeContribution} value={parentState.contribution} type="number" 
             className={contributionInputStyle} id="contribution" />
             {isNaN(parentState.contribution) && emptyInputText}
