@@ -79,7 +79,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <Container className="app-container">
+      <Container fluid className="app-container">
         <Row>
           <Col className="d-flex justify-content-center">
             <h1>Compound Interest Calculator</h1>
@@ -93,15 +93,21 @@ class App extends React.Component {
           </Col>
         </Row>
         <Row className="results">
+          <Col className="d-flex justify-content-center">
+            <span>Resulting Value of Investment: ${this.state.result.toFixed(2)}<br />
+            Total Contribution: ${this.state.totalContribution.toFixed(2)}</span>
+          </Col>
+        </Row>
+        {/* <Row className="results">
           <Col className="d-flex justify-content-end" md={7}>
             Resulting Value of Investment:<br />
             Total Contribution: 
           </Col>
-          <Col className="d-flex justify-content-start" md="auto">
+          <Col className="d-flex justify-content-start">
             ${this.state.result.toFixed(2)}<br />
             ${this.state.totalContribution.toFixed(2)}
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     );
   }

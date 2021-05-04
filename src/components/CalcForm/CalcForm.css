@@ -2,8 +2,13 @@
   border: 2px solid red;
 } */
 
-.empty-input-text {
+.empty-input-warning {
   color: red;
+}
+
+.input-text {
+  width: 16em;
+  height: 2.4em;
 }
 
 .input-label {

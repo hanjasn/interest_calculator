@@ -36,7 +36,7 @@ class CalcForm extends React.Component {
     // const contributionInputStyle = isNaN(parentState.contribution) ? "empty-input" : "";
     // const yearsInputStyle = isNaN(parentState.years) ? "empty-input" : "";
     // const annualRateInputStyle = isNaN(parentState.annualRate) ? "empty-input" : "";
-    const emptyInputText = (<div className="empty-input-text">Please enter a value</div>);
+    const emptyInputWarning = (<div className="empty-input-warning">Please enter a value</div>);
     return (
       <Form>
         <Row>
@@ -45,11 +45,10 @@ class CalcForm extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col md="auto">$</Col>
           <Col md="auto">
-            <Form.Control onChange={this.props.handleChangeInitialInvestment} value={parentState.initialInvestment} type="number" 
-            id="initial-investment" />
-            {isNaN(parentState.initialInvestment) && emptyInputText}
+            <span>$ <Form.Control custom onChange={this.props.handleChangeInitialInvestment} value={parentState.initialInvestment} 
+            type="number" className="border rounded input-text" id="initial-investment" /></span>
+            {isNaN(parentState.initialInvestment) && emptyInputWarning}
           </Col>
         </Row>
         <Row className="input-label">
@@ -58,13 +57,12 @@ class CalcForm extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col md="auto">$</Col>
           <Col md="auto">
-            <Form.Control onChange={this.props.handleChangeContribution} value={parentState.contribution} type="number" 
-            id="contribution" />
-            {isNaN(parentState.contribution) && emptyInputText}
+            <span>$ <Form.Control custom onChange={this.props.handleChangeContribution} value={parentState.contribution} 
+            type="number" className="border rounded input-text" id="contribution" /></span>
+            {isNaN(parentState.contribution) && emptyInputWarning}
           </Col>
-          <Col>
+          <Col md="auto">
             <Form.Control as="select" custom onChange={this.props.handleChangeContributionRate}>
               <option value="monthly">Monthly</option>
               <option value="yearly">Yearly</option>
@@ -78,8 +76,9 @@ class CalcForm extends React.Component {
         </Row>
         <Row>
           <Col md="auto">
-            <Form.Control onChange={this.props.handleChangeYears} value={parentState.years} type="number" id="years" />
-            {isNaN(parentState.years) && emptyInputText}
+            <Form.Control custom onChange={this.props.handleChangeYears} value={parentState.years} type="number" 
+            className="border rounded input-text" id="years" />
+            {isNaN(parentState.years) && emptyInputWarning}
           </Col>
         </Row>
         <Row className="input-label">
@@ -89,11 +88,10 @@ class CalcForm extends React.Component {
         </Row>
         <Row>
           <Col md="auto">
-            <Form.Control onChange={this.props.handleChangeAnnualRate} value={parentState.annualRate} type="number" 
-            id="annual-rate" />
-            {isNaN(parentState.annualRate) && emptyInputText}
+            <span><Form.Control custom onChange={this.props.handleChangeAnnualRate} value={parentState.annualRate} type="number" 
+            className="border rounded input-text" id="annual-rate" /> %</span>
+            {isNaN(parentState.annualRate) && emptyInputWarning}
           </Col>
-          <Col>%</Col>
         </Row>
         <Row className="calculate-button">
           <Col>
