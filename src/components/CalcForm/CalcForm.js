@@ -16,6 +16,10 @@ class CalcForm extends React.Component {
     document.addEventListener("keydown", this.handleKeyPress);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
+  }
+
   handleSubmit() {
     let canSubmit = !isNaN(this.props.state.initialInvestment) && !isNaN(this.props.state.contribution) && 
                       !isNaN(this.props.state.years) && !isNaN(this.props.state.annualRate);
